@@ -39,7 +39,7 @@ export default function CategoryPulse() {
             <a
               key={cat.name}
               href={`https://wa.me{cat.name}%20collection.`}
-              className="flex-shrink-0 w-40 lg:w-full group bg-white p-8 rounded-[32px] border border-stone-200 hover:border-amber-500/50 transition-all hover:shadow-xl hover:shadow-amber-900/5"
+              className="shrink-0 w-40 lg:w-full group bg-white p-8 rounded-[32px] border border-stone-200 hover:border-amber-500/50 transition-all hover:shadow-xl hover:shadow-amber-900/5"
             >
               <div className={`size-14 mx-auto rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 ${cat.color}`}>
                 <cat.icon size={28} />
