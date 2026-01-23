@@ -16,10 +16,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased font-sans">
         <RamadanCounter />
         <Navbar /> {/* Stays visible during navigation */}
-        <Footer />
         <main>
           {children} {/* Individual pages get rendered here */}
         </main> {/* This is where your individual pages render */}
+        <Footer />
       </body>
     </html>
   );

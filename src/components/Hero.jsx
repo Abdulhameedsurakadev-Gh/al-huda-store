@@ -8,7 +8,7 @@ export default function Hero() {
     <section className="relative min-h-screen w-full flex items-center overflow-hidden bg-[#064e3b] py-12 lg:py-0">
       {/* Background Decor */}
       <div className="absolute inset-0 opacity-20 pointer-events-none bg-[url('https://www.transparenttextures.com')]" />
-      <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-amber-500/10 rounded-full blur-[80px] md:blur-[150px] -translate-y-1/2 translate-x-1/4" />
+      <div className="absolute top-0 right-0 w-75 h-75 md:w-125 md:h-125 bg-amber-500/10 rounded-full blur-[80px] md:blur-[150px] -translate-y-1/2 translate-x-1/4" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Responsive Grid: Stacks on mobile (cols-1), side-by-side on LG (cols-2) */}
@@ -50,8 +50,8 @@ export default function Hero() {
           </div>
 
           {/* RIGHT: Visual Card (Ordered first on mobile for visual impact) */}
-          <div className="relative group w-full max-w-[450px] lg:max-w-none mx-auto order-1 lg:order-2">
-            <div className="relative z-10 bg-white/5 border border-white/10 backdrop-blur-2xl rounded-[30px] md:rounded-[50px] shadow-3xl overflow-hidden aspect-[4/5] flex flex-col">
+          <div className="relative group w-full max-w-112.5 lg:max-w-none mx-auto order-1 lg:order-2">
+            <div className="relative z-10 bg-white/5 border border-white/10 backdrop-blur-2xl rounded-[30px] md:rounded-[50px] shadow-3xl overflow-hidden aspect-4/5 flex flex-col">
               
               <div className="absolute inset-0 z-0 opacity-60 group-hover:opacity-80 transition-opacity duration-700">
                 <Image 
@@ -62,7 +62,7 @@ export default function Hero() {
                   sizes="(max-width: 768px) 100vw, 50vw" 
                   className="object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-[#064e3b]/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#064e3b] via-[#064e3b]/20 to-transparent" />
               </div>
 
               {/* Card Content Overlay */}
