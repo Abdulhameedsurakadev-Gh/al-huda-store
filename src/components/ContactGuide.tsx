@@ -15,7 +15,7 @@ export default function ContactGuide() {
                 Visit or Message Us
               </h2>
               <p className="font-serif text-3xl md:text-5xl text-stone-100 font-bold">
-                We're easy to <span className="italic text-amber-500">Find.</span>
+                We&apos;re easy to <span className="italic text-amber-500">Find.</span>
               </p>
             </div>
 
