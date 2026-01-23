@@ -95,11 +95,15 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="text-amber-500 size-5 shrink-0" />
-                <span>Nima Main Highway, Near the Central Mosque, Accra, Ghana</span>
+                <span>
+                    Nyanano Road, Transformer, <br />
+                    Near Xcober, Kasoa, <br />
+                    Central Region, Ghana
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="text-amber-500 size-5 shrink-0" />
-                <span>+233 (0) XX XXX XXXX</span>
+                <span>+233 (0) 54 0677 535</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-amber-500 size-5 shrink-0" />
