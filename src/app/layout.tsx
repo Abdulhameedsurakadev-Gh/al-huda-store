@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css"; // Links your Tailwind v4 @theme tokens
 import Navbar from "@/components/Navbar"; // Links your high-level Navbar
 import RamadanCounter from "@/components/RamadanCounter";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Modern Boutique",
@@ -15,7 +16,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased font-sans">
         <RamadanCounter />
         <Navbar /> {/* Stays visible during navigation */}
-        <main>{children}</main> {/* This is where your individual pages render */}
+        <Footer />
+        <main>
+          {children} {/* Individual pages get rendered here */}
+        </main> {/* This is where your individual pages render */}
       </body>
     </html>
   );
