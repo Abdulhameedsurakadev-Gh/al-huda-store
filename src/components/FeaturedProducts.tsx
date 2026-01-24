@@ -1,7 +1,7 @@
 "use client";
 
 import { MessageCircle, Heart, Sparkles } from "lucide-react";
-import Image from "next/image";
+// import Image from "next/image";
 
 // Phase 1: Placeholder Data (Swap this with your JSON import later)
 const featuredItems = [
