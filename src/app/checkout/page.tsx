@@ -6,6 +6,7 @@ import { supabase } from "@/lib/supabase";
 import { Lock, MapPin, Phone, ChevronLeft, CreditCard, Loader2, Truck } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import type { PaystackPop as PaystackPopType } from '@paystack/inline-js';
 
 export default function CheckoutPage() {
   const { items, getTotalPrice, clearCart } = useCartStore();
@@ -13,6 +14,8 @@ export default function CheckoutPage() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<"momo" | "cod">("momo");
   const router = useRouter();
+  const PaystackPop = (await import('@paystack/inline-js')).default;
+  const paystack = new PaystackPop();
 
   const [fullName, setFullName] = useState("");
   const [address, setAddress] = useState("");
