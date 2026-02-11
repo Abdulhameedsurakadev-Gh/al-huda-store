@@ -6,6 +6,7 @@ import { supabase } from "@/lib/supabase";
 import { Lock, MapPin, Phone, ChevronLeft, CreditCard, Loader2, Truck } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+// ✅ Keep the type import at the top
 import type { PaystackPop as PaystackPopType } from '@paystack/inline-js';
 
 export default function CheckoutPage() {
@@ -14,8 +15,8 @@ export default function CheckoutPage() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<"momo" | "cod">("momo");
   const router = useRouter();
-  const PaystackPop = (await import('@paystack/inline-js')).default;
-  const paystack = new PaystackPop();
+
+  // 🗑️ DELETED the top-level Paystack import from here
 
   const [fullName, setFullName] = useState("");
   const [address, setAddress] = useState("");
@@ -42,7 +43,7 @@ export default function CheckoutPage() {
   };
 
   const handleCheckoutFinal = async () => {
-    if (typeof window === "undefined") return; // FIX: Prevents Turbo/SSR window error
+    if (typeof window === "undefined") return;
 
     if (!phone || !address || !fullName) {
       alert("Please fill in all delivery details first.");
@@ -67,12 +68,12 @@ export default function CheckoutPage() {
       if (error) throw error;
 
       if (paymentMethod === "momo") {
-        // FIX: Dynamic Import of Paystack to avoid "window is not defined"
+        // ✅ CORRECT: Import only when the button is clicked
         const PaystackPop = (await import('@paystack/inline-js')).default;
         const paystack = new PaystackPop();
         
         paystack.newTransaction({
-          key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY,
+          key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY!,
           email: email || "customer@alhudaboutique.com",
           amount: totalGHS * 100,
           currency: "GHS",
