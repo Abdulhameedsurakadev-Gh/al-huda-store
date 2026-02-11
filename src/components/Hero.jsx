@@ -1,92 +1,78 @@
 "use client";
 
 import Image from "next/image";
-import { MessageCircle, ShoppingBag, Sparkles, ArrowRight } from "lucide-react";
+import { MessageCircle, ShoppingBag, Sparkles, ArrowRight, MapPin } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex items-center overflow-hidden bg-[#064e3b] py-12 lg:py-0">
-      {/* Background Decor */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none bg-[url('https://www.transparenttextures.com')]" />
-      <div className="absolute top-0 right-0 w-75 h-75 md:w-125 md:h-125 bg-amber-500/10 rounded-full blur-[80px] md:blur-[150px] -translate-y-1/2 translate-x-1/4" />
-
+    <section className="relative min-h-screen w-full flex items-center overflow-hidden bg-[#052e16] py-12 lg:py-0">
+      {/* Background Decor: Clean gradient instead of external textures to avoid URL errors */}
+      <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-amber-900/20 via-transparent to-transparent" />
+      
       <div className="container mx-auto px-6 relative z-10">
-        {/* Responsive Grid: Stacks on mobile (cols-1), side-by-side on LG (cols-2) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
-          {/* LEFT: Messaging (Ordered first on mobile) */}
+          {/* LEFT: Messaging */}
           <div className="space-y-6 md:space-y-8 text-center lg:text-left order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-4 py-2 rounded-full mx-auto lg:mx-0">
-              <Sparkles className="text-amber-400 size-4 animate-pulse" />
-              <span className="text-amber-400 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">
-                Ramadan Prep • Eid Collection 2026
+            <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-4 py-2 rounded-full">
+              <MapPin className="text-amber-400 size-4" />
+              <span className="text-amber-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                Serving Accra & Kasoa • Eid 2026
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-stone-100 leading-tight">
-              Faith in Every <br />
-              <span className="text-amber-500 italic">Fine Detail.</span>
+            <h1 className="text-5xl md:text-7xl font-serif font-bold text-stone-100 leading-[1.1]">
+              Elevate Your <br />
+              <span className="text-amber-500 italic">Faithful Style.</span>
             </h1>
 
-            <p className="text-stone-300 text-base md:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Prepare for the Holy Month with Iftar essentials, then step into 
-              <span className="text-white font-semibold"> Eid-ul-Fitr </span> with our 
-              exclusive boutique dresses and perfumes. 
+            <p className="text-stone-300 text-lg md:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Discover the finest Modest Wear in Ghana. From daily prayer essentials to exquisite Eid-ul-Fitr collections.
             </p>
 
-            {/* Buttons: Stack on small mobile, row on larger screens */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+              {/* Replace with your actual WhatsApp number for Kasoa/Accra customers */}
               <a 
                 href="https://wa.me" 
-                className="group bg-amber-500 hover:bg-amber-600 text-[#064e3b] px-8 py-4 rounded-2xl font-bold text-md md:text-lg flex items-center justify-center gap-3 transition-all"
+                className="group bg-amber-500 hover:bg-amber-600 text-stone-900 px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 transition-all shadow-lg shadow-amber-500/20"
               >
-                <MessageCircle size={22} className="group-hover:rotate-12 transition-transform" />
-                Order via WhatsApp
+                <MessageCircle size={22} />
+                WhatsApp Order
               </a>
-              <button className="group bg-white/5 border border-white/10 hover:border-amber-500/50 text-stone-100 px-8 py-4 rounded-2xl font-bold text-md md:text-lg transition-all backdrop-blur-md flex items-center justify-center gap-2">
-                View Collection <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              <button className="group bg-white/5 border border-white/20 hover:border-amber-500/50 text-stone-100 px-8 py-4 rounded-xl font-bold text-lg transition-all backdrop-blur-md flex items-center justify-center gap-2">
+                View Gallery <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </div>
 
-          {/* RIGHT: Visual Card (Ordered first on mobile for visual impact) */}
-          <div className="relative group w-full max-w-112.5 lg:max-w-none mx-auto order-1 lg:order-2">
-            <div className="relative z-10 bg-white/5 border border-white/10 backdrop-blur-2xl rounded-[30px] md:rounded-[50px] shadow-3xl overflow-hidden aspect-4/5 flex flex-col">
+          {/* RIGHT: Visual Card with valid Placeholder */}
+          <div className="relative order-1 lg:order-2">
+            <div className="relative z-10 rounded-[2rem] overflow-hidden aspect-[4/5] shadow-2xl border border-white/10">
+              <Image 
+                // Using a high-quality Unsplash image to prevent "Invalid URL" errors
+                src="https://images.unsplash.com" 
+                alt="Luxury Islamic Fashion"
+                fill
+                priority
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#052e16] via-transparent to-transparent opacity-80" />
               
-              <div className="absolute inset-0 z-0 opacity-60 group-hover:opacity-80 transition-opacity duration-700">
-                <Image 
-                  src="https://images.unsplash.com" 
-                  alt="Eid Boutique Collection"
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw" 
-                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-[#064e3b] via-[#064e3b]/20 to-transparent" />
-              </div>
-
-              {/* Card Content Overlay */}
-              <div className="relative z-10 p-6 md:p-10 mt-auto">
-                <div className="absolute top-6 left-6 md:top-8 md:left-8 bg-amber-500 text-[#064e3b] px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter">
-                  New Arrival
-                </div>
-
-                <div className="space-y-2 md:space-y-4">
-                  <div className="size-12 md:size-14 bg-amber-500/20 rounded-xl flex items-center justify-center border border-amber-500/30 backdrop-blur-md">
-                    <ShoppingBag className="text-amber-500 size-6 md:size-7" />
+              <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-amber-500 rounded-lg">
+                    <ShoppingBag className="text-stone-900 size-6" />
                   </div>
-                  <h3 className="text-stone-100 font-serif text-2xl md:text-3xl font-bold">The Eid Boutique</h3>
-                  <p className="text-stone-300 text-xs md:text-sm leading-relaxed uppercase tracking-widest">
-                    Luxury Dresses • Jewelry • Ouds
-                  </p>
+                  <div>
+                    <p className="text-stone-100 font-bold text-xl">The 2026 Collection</p>
+                    <p className="text-amber-500 text-sm font-medium">Limited Accra Stock</p>
+                  </div>
                 </div>
               </div>
             </div>
-
-            {/* Floating Moon Badge (Hidden on very small mobile) */}
-            <div className="absolute -top-4 -right-4 bg-amber-500/20 border border-amber-500/30 backdrop-blur-xl p-4 md:p-6 rounded-2xl z-20 hidden sm:block shadow-2xl">
-               <p className="text-amber-500 font-bold text-center">🌙<br/><span className="text-[8px] md:text-[10px] text-stone-300 uppercase tracking-tighter leading-none">Ramadan Prep</span></p>
-            </div>
+            
+            {/* Decorative Element */}
+            <div className="absolute -bottom-6 -left-6 size-32 bg-amber-500/10 blur-3xl rounded-full" />
           </div>
 
         </div>
