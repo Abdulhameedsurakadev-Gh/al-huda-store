@@ -7,8 +7,7 @@ import { Lock, MapPin, Phone, ChevronLeft, CreditCard, Loader2, Truck } from "lu
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 // ✅ Keep the type import at the top
-import PaystackPop from "@paystack/inline-js";
-type PaystackPopType = typeof PaystackPop;
+import type { PaystackPop as PaystackPopType } from '@paystack/inline-js';
 
 export default function CheckoutPage() {
   const { items, getTotalPrice, clearCart } = useCartStore();
