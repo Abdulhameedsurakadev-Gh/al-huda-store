@@ -1,12 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Moon, Sparkles } from "lucide-react";
+import { Moon, Sparkles, Timer } from "lucide-react";
 
 export default function RamadanCounter() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0 });
 
   useEffect(() => {
-    // Ramadan 2026 Target Date
+    // Ramadan 2026 Target Date: approx Feb 18
     const target = new Date("2026-02-18T00:00:00").getTime();
 
     const interval = setInterval(() => {
@@ -28,49 +28,56 @@ export default function RamadanCounter() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden bg-[#064e3b] text-white py-3 px-4 shadow-lg border-b border-amber-500/30">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
-        <Moon size={80} className="rotate-12 translate-x-4 -translate-y-4" />
-      </div>
+    <div className="relative overflow-hidden bg-[#052e16] text-white py-2.5 px-4 shadow-2xl border-b border-amber-500/20">
+      {/* Decorative Starry Background Effect */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none bg-[url('https://www.transparenttextures.com')]"></div>
       
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
-        {/* Left Side: Branding/Urgency */}
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 relative z-10">
+        
+        {/* Left Side: Branding */}
         <div className="flex items-center gap-2">
-          <div className="bg-amber-500/20 p-1.5 rounded-full animate-pulse">
-            <Sparkles className="text-amber-400 w-4 h-4 md:w-5 md:h-5" />
-          </div>
-          <p className="text-sm md:text-base font-semibold tracking-wide">
-            AL-HUDA RAMADAN PRE-ORDERS
+          <Sparkles className="text-amber-400 w-4 h-4 animate-pulse hidden sm:block" />
+          <p className="text-[11px] md:text-xs font-black tracking-[0.15em] uppercase text-amber-100">
+            Ramadan Collection <span className="text-white opacity-60 px-1">|</span> Pre-Order Live
           </p>
         </div>
 
-        {/* Center: The Counter */}
-        <div className="flex items-center gap-4 bg-black/20 px-4 py-1.5 rounded-2xl border border-white/10">
-          <div className="text-center">
-            <span className="block text-lg md:text-xl font-bold text-amber-400 leading-none">{timeLeft.days}</span>
-            <span className="text-[10px] uppercase opacity-80 tracking-tighter">Days</span>
-          </div>
-          <div className="text-amber-500 font-bold">:</div>
-          <div className="text-center">
-            <span className="block text-lg md:text-xl font-bold text-amber-400 leading-none">{timeLeft.hours}</span>
-            <span className="text-[10px] uppercase opacity-80 tracking-tighter">Hours</span>
-          </div>
-          <div className="text-amber-500 font-bold">:</div>
-          <div className="text-center">
-            <span className="block text-lg md:text-xl font-bold text-amber-400 leading-none">{timeLeft.mins}</span>
-            <span className="text-[10px] uppercase opacity-80 tracking-tighter">Mins</span>
+        {/* Center: The Counter (Redesigned for Mobile) */}
+        <div className="flex items-center gap-3 sm:gap-6">
+          <div className="flex items-center gap-1.5">
+            <Timer size={14} className="text-amber-500 hidden sm:block" />
+            <div className="flex items-center gap-3">
+              <TimeUnit value={timeLeft.days} label="Days" />
+              <span className="text-amber-500/50 font-light text-xl">:</span>
+              <TimeUnit value={timeLeft.hours} label="Hrs" />
+              <span className="text-amber-500/50 font-light text-xl">:</span>
+              <TimeUnit value={timeLeft.mins} label="Mins" />
+            </div>
           </div>
         </div>
 
         {/* Right Side: CTA */}
         <a 
           href="#ramadan-shop" 
-          className="text-xs md:text-sm font-bold bg-amber-500 hover:bg-amber-600 text-[#064e3b] px-5 py-2 rounded-full transition-all transform hover:scale-105 shadow-md uppercase tracking-wider"
+          className="group relative inline-flex items-center justify-center text-[10px] md:text-xs font-bold bg-amber-500 hover:bg-amber-400 text-[#064e3b] px-6 py-1.5 rounded-full transition-all shadow-[0_0_15px_rgba(245,158,11,0.3)] uppercase tracking-tighter"
         >
-          Shop Iftar Essentials
+          Explore Collection
         </a>
       </div>
+    </div>
+  );
+}
+
+// Small helper component to keep the code clean
+function TimeUnit({ value, label }: { value: number, label: string }) {
+  return (
+    <div className="flex flex-col items-center">
+      <span className="text-base md:text-lg font-black text-white tabular-nums leading-none">
+        {value.toString().padStart(2, '0')}
+      </span>
+      <span className="text-[8px] uppercase font-bold text-amber-500/80 tracking-widest mt-0.5">
+        {label}
+      </span>
     </div>
   );
 }
