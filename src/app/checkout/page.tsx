@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 // ✅ Keep the type import at the top
 import PaystackPop from "@paystack/inline-js";
-type PaystackPopType = typepf PaystackPop;
+type PaystackPopType = typeof PaystackPop;
 
 export default function CheckoutPage() {
   const { items, getTotalPrice, clearCart } = useCartStore();
