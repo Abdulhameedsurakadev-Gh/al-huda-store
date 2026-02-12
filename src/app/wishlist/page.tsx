@@ -13,7 +13,7 @@ export default function WishlistPage() {
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   
-  const { wishlistItems, fetchWishlist, clearWishlist } = useWishlistStore();
+  const { wishlistItems, fetchWishlist } = useWishlistStore();
   const addItem = useCartStore((state) => state.addItem);
 
   useEffect(() => {
