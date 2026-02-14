@@ -1,94 +1,118 @@
 "use client";
 
-import { MessageSquare, BadgeCheck, Truck, ArrowRight } from "lucide-react";
+import { MessageSquare, BadgeCheck, Truck, ArrowRight, Sparkles, Smartphone } from "lucide-react";
 
 const steps = [
   {
     id: "01",
-    title: "Browse & Select",
-    description: "Explore our collection and click the WhatsApp button on any item you love to start a chat.",
-    icon: MessageSquare,
-    color: "text-emerald-700",
-    bg: "bg-emerald-100"
+    title: "Select & Bag",
+    description: "Browse our boutique and add your favorites to your shopping bag. It's seamless and secure.",
+    icon: Smartphone,
   },
   {
     id: "02",
-    title: "Confirm & Customize",
-    description: "We will confirm sizes, colors, and availability with you directly on WhatsApp. Quick & personal.",
+    title: "Checkout via MoMo",
+    description: "Pay securely with Mobile Money or Card via Paystack. We'll confirm your order instantly.",
     icon: BadgeCheck,
-    color: "text-amber-700",
-    bg: "bg-amber-100"
   },
   {
     id: "03",
-    title: "Delivery to Your Door",
-    description: "Your package is dispatched to Kasoa, Accra, or anywhere in Ghana. Reliable and fast.",
+    title: "Nationwide Delivery",
+    description: "Your Al-Huda package is dispatched to Kasoa, Accra, or anywhere in Ghana. Fast & tracked.",
     icon: Truck,
-    color: "text-stone-700",
-    bg: "bg-stone-200"
   }
 ];
 
 export default function OrderGuide() {
+  const WHATSAPP_NUMBER = "233XXXXXXXXX"; // Replace with your number
+
   return (
-    <section className="py-24 bg-[#fdfbf7] relative overflow-hidden">
-      {/* Subtle background text for design depth */}
-      <div className="absolute top-10 left-10 text-9xl font-black text-stone-200/40 select-none hidden lg:block">
+    <section className="py-32 bg-[#fdfbf7] relative overflow-hidden border-t border-stone-100">
+      {/* Background Aesthetic */}
+      <div className="absolute -right-20 top-20 text-[12rem] font-black text-stone-200/20 select-none hidden lg:block rotate-90 italic">
         AL-HUDA
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-2xl mx-auto text-center mb-20">
-          <h2 className="text-amber-600 font-bold uppercase tracking-[0.3em] text-xs mb-4">
-            How it Works
-          </h2>
-          <p className="font-serif text-4xl md:text-5xl text-[#064e3b] font-bold leading-tight">
-            Shopping with us is <br />
-            <span className="italic text-amber-600 underline decoration-amber-500/30 underline-offset-8">as easy as a chat.</span>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-3xl mb-24">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="h-px w-12 bg-amber-500"></span>
+            <h2 className="text-amber-600 font-black uppercase tracking-[0.4em] text-[10px]">
+              The Shopping Experience
+            </h2>
+          </div>
+          <p className="font-serif text-4xl md:text-6xl text-[#064e3b] font-bold leading-[1.1]">
+            Elegance delivered <br />
+            <span className="italic font-normal text-stone-400">straight to your door.</span>
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
           {steps.map((step) => (
             <div key={step.id} className="group relative">
-              {/* Step Number Display */}
-              <div className="text-6xl font-black text-stone-200 group-hover:text-amber-500/10 transition-colors duration-500 absolute -top-10 -left-4 z-0">
-                {step.id}
+              {/* Vertical Connector Line for Desktop */}
+              <div className="hidden md:block absolute top-10 left-full w-full h-px bg-stone-200 z-0 last:hidden">
+                 <div className="h-full bg-amber-500 w-0 group-hover:w-full transition-all duration-700"></div>
               </div>
 
-              <div className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left">
-                <div className={`size-20 ${step.bg} rounded-3xl flex items-center justify-center mb-8 shadow-sm group-hover:shadow-xl group-hover:-translate-y-2 transition-all duration-300`}>
-                  <step.icon className={step.color} size={36} />
+              <div className="relative z-10 flex flex-col items-start">
+                {/* Step Icon with Number Badge */}
+                <div className="relative mb-10">
+                  <div className="size-20 bg-white rounded-[2rem] border border-stone-100 flex items-center justify-center shadow-sm group-hover:shadow-2xl group-hover:border-amber-500/30 group-hover:-translate-y-2 transition-all duration-500">
+                    <step.icon className="text-[#064e3b] group-hover:text-amber-600 transition-colors" size={32} />
+                  </div>
+                  <div className="absolute -top-3 -right-3 size-8 bg-amber-500 rounded-full flex items-center justify-center text-[#064e3b] font-black text-xs shadow-lg border-4 border-[#fdfbf7]">
+                    {step.id}
+                  </div>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-emerald-950 mb-4 tracking-tight">
+                <h3 className="text-xl font-black text-[#064e3b] mb-4 tracking-tight uppercase">
                   {step.title}
                 </h3>
                 
-                <p className="text-stone-500 leading-relaxed text-sm md:text-base">
+                <p className="text-stone-500 leading-relaxed text-sm font-medium">
                   {step.description}
                 </p>
 
-                <div className="mt-6 flex items-center gap-2 text-amber-600 font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                  Learn More <ArrowRight size={14} />
+                <div className="mt-8 flex items-center gap-2 text-amber-600 font-black text-[10px] uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
+                  Customer Support <ArrowRight size={14} />
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Responsive CTA Bridge */}
-        <div className="mt-20 p-8 rounded-[40px] bg-[#064e3b] text-center flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
-          <div className="text-left">
-            <h4 className="text-stone-100 text-xl font-bold">Ready to start your Ramadan prep?</h4>
-            <p className="text-stone-400 text-sm">We are online and ready to assist you now.</p>
+        {/* Professional Call-to-Action Bar */}
+        <div className="mt-32 relative overflow-hidden group">
+          <div className="absolute inset-0 bg-[#064e3b] rounded-[3rem] transition-transform duration-500 group-hover:scale-[1.02]"></div>
+          
+          <div className="relative z-10 p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-center md:text-left space-y-4">
+              <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full">
+                <Sparkles className="text-amber-400 size-4" />
+                <span className="text-amber-100 text-[10px] font-bold uppercase tracking-widest">Available 24/7</span>
+              </div>
+              <h4 className="text-white text-3xl md:text-4xl font-serif font-bold italic leading-tight">
+                Need help with your <br />Ramadan collection?
+              </h4>
+              <p className="text-emerald-200/60 text-sm max-w-sm font-medium">
+                Our advisors are online to assist you with sizing, styling, and nationwide delivery details.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+              <a 
+                href={`https://wa.me{WHATSAPP_NUMBER}`} 
+                className="bg-amber-500 hover:bg-amber-400 text-[#064e3b] px-10 py-5 rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-xl shadow-emerald-950/20 flex items-center justify-center gap-3 active:scale-95"
+              >
+                <MessageSquare size={18} className="fill-current" />
+                Chat with Hajia
+              </a>
+            </div>
           </div>
-          <a 
-            href="https://wa.me" 
-            className="bg-amber-500 hover:bg-amber-600 text-[#064e3b] px-10 py-4 rounded-2xl font-bold transition-all shadow-lg shadow-amber-900/20"
-          >
-            Start Chatting
-          </a>
+
+          {/* Decorative Pattern Background */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com')]"></div>
         </div>
       </div>
     </section>
