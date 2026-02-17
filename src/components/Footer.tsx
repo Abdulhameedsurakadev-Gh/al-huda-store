@@ -7,11 +7,11 @@ import {
   MessageCircle, 
   MapPin, 
   Phone, 
-  Mail, 
   Clock, 
   Moon,
   ArrowUpRight,
-  ShieldCheck
+  ShieldCheck,
+  Truck,
 } from "lucide-react";
 
 const footerLinks = {
@@ -37,7 +37,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#052e16] text-stone-400 relative overflow-hidden">
       {/* Subtle Top Border Glow */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 pt-24 pb-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20">
@@ -56,7 +56,7 @@ export default function Footer() {
               <a href="https://instagram.com" className="size-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-amber-500 hover:text-[#052e16] transition-all duration-500">
                 <Instagram size={22} />
               </a>
-              <a href={`https://wa.me{WHATSAPP_NUMBER}`} className="size-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-amber-500 hover:text-[#052e16] transition-all duration-500">
+              <a href={`https://wa.me${WHATSAPP_NUMBER}`} className="size-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-amber-500 hover:text-[#052e16] transition-all duration-500">
                 <MessageCircle size={22} />
               </a>
               <a href="#" className="size-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-amber-500 hover:text-[#052e16] transition-all duration-500">
@@ -146,7 +146,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </section>
+    </footer>
   );
 }
 
